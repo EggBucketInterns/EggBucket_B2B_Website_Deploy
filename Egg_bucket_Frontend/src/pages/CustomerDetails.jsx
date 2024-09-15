@@ -13,7 +13,7 @@ const CustomerDetails = () => {
 
   const fetchCustomers = async (query) => {
     try {
-      const response = await fetch('https://eggbucket-website.onrender.com/customers/egg-bucket-b2b/getAllCustomer'+query);
+      const response = await fetch('https://eggbucket-b2b-website-deploy.onrender.com/customers/egg-bucket-b2b/getAllCustomer'+query);
       const data = await response.json();
       if (response.ok) {
         setCustomers(data);
@@ -32,7 +32,7 @@ const CustomerDetails = () => {
     // Fetch outlets for the dropdown
     const fetchOutlets = async () => {
       try {
-        const response = await fetch('https://eggbucket-website.onrender.com/egg-bucket-b2b/get-all-outlets');
+        const response = await fetch('https://eggbucket-b2b-website-deploy.onrender.com/egg-bucket-b2b/get-all-outlets');
         const data = await response.json();
         if (response.ok) {
           setOutlets(data.data); // Set the outlets to state
@@ -64,7 +64,7 @@ const CustomerDetails = () => {
 
   const handleSaveEdit = async (formData) => {
     try {
-      const response = await fetch(`https://eggbucket-website.onrender.com/customers/egg-bucket-b2b/customer/${editingCustomer._id}`, {
+      const response = await fetch(`https://eggbucket-b2b-website-deploy.onrender.com/customers/egg-bucket-b2b/customer/${editingCustomer._id}`, {
         method: 'PATCH',
         body: formData
       });
@@ -91,7 +91,7 @@ const CustomerDetails = () => {
 
        console.log(Id)
       try {
-        const response = await fetch(`https://eggbucket-website.onrender.com/customers/egg-bucket-b2b/customer/${Id}`, {
+        const response = await fetch(`https://eggbucket-b2b-website-deploy.onrender.com/customers/egg-bucket-b2b/customer/${Id}`, {
           method: 'DELETE'
         });
          

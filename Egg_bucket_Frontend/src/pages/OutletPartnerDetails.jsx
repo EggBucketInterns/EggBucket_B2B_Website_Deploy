@@ -14,7 +14,7 @@ const OutletPartnerDetails = () => {
   // Fetch all outlets
   const fetchOutlets = async () => {
     try {
-      const response = await fetch('https://eggbucket-website.onrender.com/egg-bucket-b2b/get-all-outlets');
+      const response = await fetch('https://eggbucket-b2b-website-deploy.onrender.com/egg-bucket-b2b/get-all-outlets');
       const data = await response.json();
       if (response.ok) {
         setOutletList(data.data);
@@ -29,7 +29,7 @@ const OutletPartnerDetails = () => {
   // Fetch outlet partners based on outletId
   const fetchOutletPartners = async (query = '') => {
     try {
-      const response = await fetch('https://eggbucket-website.onrender.com/outletPartners/egg-bucket-b2b/displayAll-outlet_partner' + query);
+      const response = await fetch('https://eggbucket-b2b-website-deploy.onrender.com/outletPartners/egg-bucket-b2b/displayAll-outlet_partner' + query);
       const data = await response.json();
       if (data.status === 'success') {
         setOutletPartners(data.data);
@@ -66,7 +66,7 @@ const OutletPartnerDetails = () => {
 
   const handleSaveEdit = async (formData) => {
     try {
-      const response = await fetch(`https://eggbucket-website.onrender.com/outletPartners/egg-bucket-b2b/outlet_partner/${editingOutletPartner._id}`, {
+      const response = await fetch(`https://eggbucket-b2b-website-deploy.onrender.com/outletPartners/egg-bucket-b2b/outlet_partner/${editingOutletPartner._id}`, {
         method: 'PATCH',
         body: formData,
       });
@@ -89,7 +89,7 @@ const OutletPartnerDetails = () => {
     const confirmDelete = window.confirm('Are you sure you want to delete this outlet partner?');
     if (confirmDelete) {
       try {
-        const response = await fetch(`https://eggbucket-website.onrender.com/outletPartners/egg-bucket-b2b/outlet_partner/${partnerId}`, {
+        const response = await fetch(`https://eggbucket-b2b-website-deploy.onrender.com/outletPartners/egg-bucket-b2b/outlet_partner/${partnerId}`, {
           method: 'DELETE',
         });
         const data = await response.json();

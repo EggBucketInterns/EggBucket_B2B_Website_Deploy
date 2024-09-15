@@ -20,7 +20,7 @@ const OrderDetails = () => {
     const fetchOutlets = async () => {
       try {
         const response = await fetch(
-          "https://eggbucket-website.onrender.com/egg-bucket-b2b/get-all-outlets"
+          "https://eggbucket-b2b-website-deploy.onrender.com/egg-bucket-b2b/get-all-outlets"
         );
         const data = await response.json();
         if (data.status === "success") {
@@ -39,7 +39,7 @@ const OrderDetails = () => {
     const fetchCustomers = async () => {
       try {
         const response = await fetch(
-          "https://eggbucket-website.onrender.com/customers/egg-bucket-b2b/getAllCustomer"
+          "https://eggbucket-b2b-website-deploy.onrender.com/customers/egg-bucket-b2b/getAllCustomer"
         );
         const data = await response.json();
         if (data) {
@@ -56,7 +56,7 @@ const OrderDetails = () => {
   // Fetch filtered orders based on selected filters
   useEffect(() => {
     const fetchFilteredOrders = async () => {
-      let url = "https://eggbucket-website.onrender.com/orders/egg-bucket-b2b/getAllOrder";
+      let url = "https://eggbucket-b2b-website-deploy.onrender.com/orders/egg-bucket-b2b/getAllOrder";
       const filters = [];
 
       if (outletFilter !== "Outlet") {
@@ -110,7 +110,7 @@ const OrderDetails = () => {
 
     try {
       const response = await fetch(
-        `https://eggbucket-website.onrender.com/orders/egg-bucket-b2b/order/${orderId}`,
+        `https://eggbucket-b2b-website-deploy.onrender.com/orders/egg-bucket-b2b/order/${orderId}`,
         { method: "DELETE" }
       );
 
