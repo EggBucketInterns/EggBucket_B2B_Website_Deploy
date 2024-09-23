@@ -17,8 +17,6 @@ exports.createOrder = async (req, res) => {
 
     const newOrder = await Order.create(orderData);
 
-    //
-    
 
     
     // Fetch the OutletPartner ID using the Outlet collection
@@ -66,10 +64,12 @@ exports.createOrder = async (req, res) => {
 // Get all orders
 exports.getAllOrders = async (req, res) => {
   try {
+    req.query.sort='-createdAt';
     // Initialize the ApiFeatures with the Order query and the request's query parameters
     const apiFeatures = new ApiFeatures(Order.find(), req.query)
       .filtering()    
-      .paginaton()   
+      .paginaton() 
+      .sorting()  
          
 
     // Apply population after other query methods
@@ -125,7 +125,6 @@ exports.updateOrder = async (req, res) => {
 };
 
 // Delete an order by ID
-// Delete an order by ID
 exports.deleteOrder = async (req, res) => {
   try {
     const orderId = req.params.id; 
@@ -147,5 +146,3 @@ exports.deleteOrder = async (req, res) => {
     res.status(500).json({ error: "Failed to delete order", details: err.message });
   }
 };
-
-
